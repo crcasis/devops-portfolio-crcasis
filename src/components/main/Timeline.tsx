@@ -3,8 +3,8 @@
 import { FC, JSX } from 'react'
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
-import { FaBriefcase, FaAward, FaCode } from 'react-icons/fa'
-import Image from 'next/image'
+import { FaBriefcase, FaAward, FaCode, FaBuilding, FaLaptopCode, FaRocket } from 'react-icons/fa'
+import { motion } from 'framer-motion'
 
 interface TimelineItem {
   id: number
@@ -15,7 +15,7 @@ interface TimelineItem {
   description: string
   achievements: string[]
   icon: JSX.Element
-  logo?: string
+  companyIcon: JSX.Element
 }
 
 const timelineData: TimelineItem[] = [
@@ -31,8 +31,8 @@ const timelineData: TimelineItem[] = [
       'Mentored 5 junior developers, enhancing team productivity.',
       'Received Employee of the Year award for innovation.',
     ],
-    icon: <FaBriefcase className="w-5 h-5 text-neutral-200" />,
-    logo: '/techcorp-logo.png',
+    icon: <FaBriefcase className="w-6 h-6 text-neutral-200" />,
+    companyIcon: <FaBuilding className="w-8 h-8 text-blue-400" />,
   },
   {
     id: 2,
@@ -46,8 +46,8 @@ const timelineData: TimelineItem[] = [
       'Implemented CI/CD pipelines, cutting deployment time by 50%.',
       'Contributed to open-source projects on GitHub.',
     ],
-    icon: <FaCode className="w-5 h-5 text-neutral-200" />,
-    logo: '/innovate-logo.png',
+    icon: <FaCode className="s-6 h-6 text-neutral-200" />,
+    companyIcon: <FaLaptopCode className="w-8 h-8 text-green-400" />,
   },
   {
     id: 3,
@@ -61,91 +61,96 @@ const timelineData: TimelineItem[] = [
       'Optimized website performance, reducing load time by 20%.',
       'Won Hackathon for innovative feature prototype.',
     ],
-    icon: <FaAward className="w-5 h-5 text-neutral-200" />,
-    logo: '/startupx-logo.png',
+    icon: <FaAward className="w-6 h-6 text-neutral-200" />,
+    companyIcon: <FaRocket className="w-8 h-8 text-red-400" />,
   },
 ]
 
 interface TimelineElementProps {
   item: TimelineItem
+  index: number
 }
 
-const TimelineElementComponent: FC<TimelineElementProps> = ({ item }) => {
+const TimelineElementComponent: FC<TimelineElementProps> = ({ item, index }) => {
   return (
-    <VerticalTimelineElement
-      className="vertical-timeline-element--work"
-      contentStyle={{
-        background: 'rgba(38, 38, 38, 0.5)',
-        backdropFilter: 'blur(8px)',
-        border: '1px solid rgba(64, 64, 64, 0.5)',
-        borderRadius: '0.75rem',
-        boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2)',
-      }}
-      contentArrowStyle={{ borderRight: '7px solid rgba(38, 38, 38, 0.5)' }}
-      date={item.date}
-      dateClassName="text-neutral-400 text-sm font-medium"
-      iconStyle={{
-        background: '#262626',
-        color: '#d4d4d4',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-      icon={item.icon}
+    <motion.div
+      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.2 }}
     >
-      <div className="p-4 transition-transform duration-300 hover:-translate-y-1">
-        <div className="flex items-center gap-3 mb-3">
-          {item.logo && (
-            <div className="relative w-10 h-10">
-              <Image
-                src={item.logo}
-                alt={`${item.company} logo`}
-                fill
-                className="object-contain rounded-md"
-                sizes="40px"
-                quality={80}
-              />
+      <VerticalTimelineElement
+        className="vertical-timeline-element--work"
+        contentStyle={{
+          background: 'rgba(31, 41, 55, 0.9)',
+          backdropFilter: 'blur(12px)',
+          border: '1px solid rgba(75, 85, 99, 0.2)',
+          borderRadius: '1rem',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+          padding: '1.5rem',
+        }}
+        contentArrowStyle={{
+          borderRight: index % 2 === 0 ? '10px solid rgba(31, 41, 55, 0.9)' : 'none',
+          borderLeft: index % 2 !== 0 ? '10px solid rgba(31, 41, 55, 0.9)' : 'none',
+        }}
+        date={item.date}
+        dateClassName="text-gray-200 text-base font-semibold tracking-wide"
+        iconStyle={{
+          background: '#1f2937',
+          color: '#e5e7eb',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 0 0 4px rgba(31, 41, 55, 0.5)',
+        }}
+        icon={item.icon}
+        position={index % 2 === 0 ? 'right' : 'left'}
+      >
+        <div className="p-4 transition-transform duration-300 hover:-translate-y-1">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center justify-center w-12 h-12 bg-neutral-700 rounded-full">
+              {item.companyIcon}
             </div>
-          )}
-          <div>
-            <h3 className="text-lg font-semibold text-neutral-100">{item.title}</h3>
-            <p className="text-sm text-neutral-300">
-              {item.company} • {item.location}
-            </p>
+            <div>
+              <h3 className="text-xl font-semibold text-neutral-100">{item.title}</h3>
+              <p className="text-sm text-neutral-300">
+                {item.company} • {item.location}
+              </p>
+            </div>
           </div>
+          <p className="text-sm text-neutral-400 mb-4 leading-relaxed">{item.description}</p>
+          <ul className="list-disc list-inside text-sm text-neutral-400 space-y-2">
+            {item.achievements.map((achievement, index) => (
+              <li key={index} className="leading-relaxed">
+                {achievement}
+              </li>
+            ))}
+          </ul>
         </div>
-        <p className="text-sm text-neutral-400 mb-3">{item.description}</p>
-        <ul className="list-disc list-inside text-sm text-neutral-400">
-          {item.achievements.map((achievement, index) => (
-            <li key={index} className="mb-1">
-              {achievement}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </VerticalTimelineElement>
+      </VerticalTimelineElement>
+    </motion.div>
   )
 }
 
 const Timeline: FC = () => {
   return (
-    <section
-      id="experience"
-      className="py-16"
-      style={{
-        background: 'linear-gradient(to bottom, #171717, #262626)',
-      }}
-    >
+    <section id="experience" className="py-20 bg-neutral-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold text-blue-300">Work Experience & Achievements</h1>
-          <p className="text-neutral-400 mt-3 max-w-xl mx-auto text-sm">
-            A journey through my professional milestones and contributions.
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-4xl font-bold text-blue-300 tracking-tight">
+            Professional Experience & Achievements
+          </h1>
+          <p className="text-neutral-300 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
+            A curated overview of my career milestones and impactful contributions.
           </p>
-        </div>
-        <VerticalTimeline lineColor="#404040">
-          {timelineData.map((item) => (
-            <TimelineElementComponent key={item.id} item={item} />
+        </motion.div>
+        <VerticalTimeline lineColor="#6b7280">
+          {timelineData.map((item, index) => (
+            <TimelineElementComponent key={item.id} item={item} index={index} />
           ))}
         </VerticalTimeline>
       </div>

@@ -13,7 +13,6 @@ import {
   SiTypescript,
 } from 'react-icons/si'
 
-// Map tags to their corresponding icons
 const tagIcons: Record<string, JSX.Element> = {
   'Next.js': <SiNextdotjs className="w-4 h-4" />,
   TypeScript: <SiTypescript className="w-4 h-4" />,
@@ -168,7 +167,6 @@ const ProjectCard: FC<ProjectCardProps> = ({ project, index }) => {
   )
 }
 
-// Projects component
 const Projects: FC = () => {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -186,7 +184,7 @@ const Projects: FC = () => {
       id="projects"
       className="py-20"
       style={{
-        background: 'linear-gradient(to bottom, #171717, #262626)', // Neutral-900 to Neutral-800
+        background: 'linear-gradient(to bottom, #171717, #262626)',
       }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
@@ -205,7 +203,7 @@ const Projects: FC = () => {
           </p>
         </motion.div>
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible"

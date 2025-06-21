@@ -4,6 +4,7 @@ import Projects from '@/components/main/Projects'
 import ResumeSection from '@/components/main/Resume'
 import Skills from '@/components/main/Skills'
 import Timeline from '@/components/main/Timeline'
+import { Toaster } from 'react-hot-toast'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Timeline />
         <Projects />
         <ContactUs />
+        <Toaster position="bottom-right" />
       </div>
     </div>
   )
