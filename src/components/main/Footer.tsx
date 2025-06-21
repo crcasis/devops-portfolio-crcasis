@@ -1,9 +1,9 @@
 'use client'
 
-import { FC, useEffect, useState } from 'react'
-import { FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa'
-import { RxDiscordLogo, RxGithubLogo } from 'react-icons/rx'
 import { motion } from 'framer-motion'
+import { FC, useEffect, useState } from 'react'
+import { FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { RxGithubLogo } from 'react-icons/rx'
 
 const Footer: FC = () => {
   const [visitorCount, setVisitorCount] = useState<number>(0)
@@ -26,34 +26,19 @@ const Footer: FC = () => {
 
   const socialLinks = [
     {
-      href: 'https://github.com/',
+      href: 'https://github.com/Ashlok2003',
       icon: <RxGithubLogo className="w-5 h-5" />,
       label: 'GitHub',
     },
     {
-      href: 'https://discord.com/',
-      icon: <RxDiscordLogo className="w-5 h-5" />,
-      label: 'Discord',
-    },
-    {
-      href: 'https://linkedin.com/',
+      href: 'https://www.linkedin.com/in/ashlok2003/',
       icon: <FaLinkedin className="w-5 h-5" />,
       label: 'LinkedIn',
     },
     {
-      href: 'https://twitter.com/',
+      href: 'https://x.com/ashlok2003',
       icon: <FaTwitter className="w-5 h-5" />,
       label: 'Twitter',
-    },
-    {
-      href: 'https://youtube.com/',
-      icon: <FaYoutube className="w-5 h-5" />,
-      label: 'YouTube',
-    },
-    {
-      href: 'https://instagram.com/',
-      icon: <FaInstagram className="w-5 h-5" />,
-      label: 'Instagram',
     },
   ]
 
