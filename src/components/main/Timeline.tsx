@@ -1,10 +1,10 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { FC, JSX } from 'react'
+import { FaBriefcase, FaBuilding, FaCode, FaLaptopCode } from 'react-icons/fa'
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
-import { FaBriefcase, FaAward, FaCode, FaBuilding, FaLaptopCode, FaRocket } from 'react-icons/fa'
-import { motion } from 'framer-motion'
 
 interface TimelineItem {
   id: number
@@ -21,48 +21,34 @@ interface TimelineItem {
 const timelineData: TimelineItem[] = [
   {
     id: 1,
-    title: 'Senior Software Engineer',
-    company: 'TechCorp',
-    location: 'San Francisco, CA',
-    date: 'Jan 2023 - Present',
-    description: 'Led development of scalable web applications using Next.js and TypeScript.',
+    title: 'Full Stack Developer Intern',
+    company: 'Talent Corner HR Services Pvt. Ltd.',
+    location: 'Remote',
+    date: 'Apr 2025 - Present',
+    description: 'Working as a full stack developer building scalable lead management systems.',
     achievements: [
-      'Architected a microservices-based platform, improving system scalability by 40%.',
-      'Mentored 5 junior developers, enhancing team productivity.',
-      'Received Employee of the Year award for innovation.',
+      'Built lead verification & enrichment service using Node.js and MySQL.',
+      'Designed reusable React components for dashboards and follow-up tracking.',
+      'Implemented modular architecture with service-controller pattern and Zod validation.',
     ],
     icon: <FaBriefcase className="w-6 h-6 text-neutral-200" />,
-    companyIcon: <FaBuilding className="w-8 h-8 text-blue-400" />,
+    companyIcon: <FaBuilding className="w-8 h-8 text-orange-400" />,
   },
   {
     id: 2,
-    title: 'Software Engineer',
-    company: 'Innovate Solutions',
+    title: 'Architected & Deployed ShopXIndia',
+    company: 'Personal Project',
     location: 'Remote',
-    date: 'Jun 2020 - Dec 2022',
-    description: 'Developed full-stack applications with React, Node.js, and MongoDB.',
+    date: 'Feb 2024 - Sep 2025',
+    description:
+      'Designed a full-scale e-commerce platform using a microservices architecture and deployed via AWS ECS Fargate.',
     achievements: [
-      'Built a real-time dashboard, reducing client response time by 30%.',
-      'Implemented CI/CD pipelines, cutting deployment time by 50%.',
-      'Contributed to open-source projects on GitHub.',
+      'Used CI/CD with CodePipeline, CodeBuild, and CodeDeploy for efficient releases.',
+      'Integrated AWS S3, RDS, ElastiCache, CloudFront, and Cognito.',
+      'Managed containerized services via ECS Service Connect and Cloud Map.',
     ],
-    icon: <FaCode className="s-6 h-6 text-neutral-200" />,
-    companyIcon: <FaLaptopCode className="w-8 h-8 text-green-400" />,
-  },
-  {
-    id: 3,
-    title: 'Junior Developer',
-    company: 'StartupX',
-    location: 'New York, NY',
-    date: 'May 2018 - May 2020',
-    description: 'Assisted in building front-end features using React and Tailwind CSS.',
-    achievements: [
-      'Developed a user authentication system, improving security.',
-      'Optimized website performance, reducing load time by 20%.',
-      'Won Hackathon for innovative feature prototype.',
-    ],
-    icon: <FaAward className="w-6 h-6 text-neutral-200" />,
-    companyIcon: <FaRocket className="w-8 h-8 text-red-400" />,
+    icon: <FaCode className="w-6 h-6 text-neutral-200" />,
+    companyIcon: <FaLaptopCode className="w-8 h-8 text-blue-400" />,
   },
 ]
 
@@ -81,7 +67,8 @@ const TimelineElementComponent: FC<TimelineElementProps> = ({ item, index }) => 
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
         contentStyle={{
-          background: 'rgba(31, 41, 55, 0.9)',
+          background: '#1F2937',
+          color: '#FFFFFF',
           backdropFilter: 'blur(12px)',
           border: '1px solid rgba(75, 85, 99, 0.2)',
           borderRadius: '1rem',

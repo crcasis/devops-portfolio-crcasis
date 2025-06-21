@@ -35,35 +35,36 @@ interface Project {
 const projectsData: Project[] = [
   {
     id: 1,
-    title: 'Next.js Portfolio',
+    title: 'ShopXIndia',
     description:
-      'A high-performance portfolio built with Next.js, showcasing dynamic content and SEO optimization.',
-    image: '/NextWebsite.png',
-    github: 'https://github.com/your-repo/next-portfolio',
-    live: 'https://your-live-site.com',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+      'A microservices-based e-commerce platform using AWS ECS Fargate, CI/CD with CodePipeline, S3, RDS, ElastiCache, and full observability via CloudWatch and SNS.',
+    image: '/shopxindia.png',
+    github: 'https://github.com/Ashlok2003/ShopxIndia',
+    live: 'https://github.com/Ashlok2003/ShopxIndia',
+    tags: ['Node.js', 'React', 'AWS', 'ECS', 'CI/CD', 'Typescript'],
   },
   {
     id: 2,
-    title: 'Interactive Card Components',
-    description: 'Reusable card components with smooth hover effects and responsive design.',
-    image: '/CardImage.png',
-    github: 'https://github.com/your-repo/interactive-cards',
-    live: 'https://your-live-site.com',
-    tags: ['React', 'CSS', 'TypeScript'],
+    title: 'SocialPedia',
+    description:
+      'A social media platform with React, Node.js, Redux, and MongoDB featuring real-time messaging, JWT auth, and responsive design.',
+    image: '/socialpedia.png',
+    github: 'https://github.com/Ashlok2003/Socialpedia',
+    live: 'https://socialpedia-tau.vercel.app/',
+    tags: ['React', 'Node.js', 'MongoDB', 'Redux', 'WebSockets', 'Javascript'],
   },
   {
     id: 3,
-    title: 'Space Themed Website',
-    description: 'A visually engaging space-themed website with immersive UI and animations.',
-    image: '/SpaceWebsite.png',
-    github: 'https://github.com/your-repo/space-website',
-    live: 'https://your-live-site.com',
-    tags: ['Next.js', 'Three.js', 'Tailwind CSS'],
+    title: 'FileShareX',
+    description:
+      'File sharing app an QR-based sharing, SMTP integration, React frontend, and Standard deployment.',
+    image: '/filesharex.png',
+    github: 'https://github.com/Ashlok2003/File-Sharer',
+    live: 'https://file-sharer-sepia.vercel.app/',
+    tags: ['React', 'Node.js', 'MongoDB', 'Javascript'],
   },
 ]
 
-// ProjectCard component
 interface ProjectCardProps {
   project: Project
   index: number
@@ -125,11 +126,11 @@ const ProjectCard: FC<ProjectCardProps> = ({ project, index }) => {
           {project.tags.map((tag, idx) => (
             <motion.span
               key={idx}
-              className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-blue-600/30 to-purple-600/30 text-neutral-100 text-xs font-medium rounded-full"
+              className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-neutral-100/30 to-blue-300/30 text-neutral-900 text-xs font-medium rounded-full"
               whileHover={{
                 scale: 1.1,
                 background:
-                  'linear-gradient(to right, rgba(59, 130, 246, 0.5), rgba(147, 51, 234, 0.5))',
+                  'linear-gradient(to right, rgba(245, 245, 245, 0.5), rgba(147, 197, 253, 0.5))',
               }}
             >
               {tagIcons[tag] || null}
