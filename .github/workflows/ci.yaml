@@ -1,16 +1,50 @@
-name: Print Message
+name: Continuous Integration
 
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
-  say-hello:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Print a custom message
-        run: echo "🎉 Hello from GitHub Actions! This is your CI workflow speaking."
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: TypeScript type-check
+        run: npx tsc --noEmit
+
+      - name: Run Tests with coverage
+        run: npm run test:coverage
+
+      - name: Build
+        run: npm run build
+
+      - name: 🔎 SonarCloud Scan
+        if: >
+          github.event_name != 'pull_request' ||
+          github.event.pull_request.head.repo.full_name == github.repository
+        uses: sonarsource/sonarcloud-github-action@v2
+        with:
+          projectBaseDir: .
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarcloud.io
+
+      - name: CI Completed
+        run: echo "🎉 CI pipeline finished successfully."
