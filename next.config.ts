@@ -10,16 +10,17 @@ setupDevPlatform().catch(console.error)
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.externals = config.externals || []
-
-      config.externals.push({
-        canvas: 'commonjs canvas',
-      })
-    }
-
+  webpack: (config, {}) => {
     return config
+  },
+  turbopack: {},
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+      },
+    ],
   },
 }
 

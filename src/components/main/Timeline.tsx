@@ -2,16 +2,18 @@
 
 import { motion } from 'framer-motion'
 import { FC, JSX } from 'react'
+import Image from 'next/image'
+import { Timeline as TimelineComponent } from '@/components/ui/timeline'
 import { FaBriefcase, FaBuilding, FaCode, FaLaptopCode } from 'react-icons/fa'
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
-import 'react-vertical-timeline-component/style.min.css'
 
 interface TimelineItem {
   id: number
+  type: 'work' | 'project'
   title: string
   company: string
   location: string
   date: string
+  imageURL: string
   description: string
   achievements: string[]
   icon: JSX.Element
@@ -21,106 +23,93 @@ interface TimelineItem {
 const timelineData: TimelineItem[] = [
   {
     id: 1,
+    type: 'work',
     title: 'Full Stack Developer Intern',
     company: 'Talent Corner HR Services Pvt. Ltd.',
     location: 'Remote',
     date: 'Apr 2025 - Present',
-    description: 'Working as a full stack developer building scalable lead management systems.',
+    imageURL: '/talent-corner-logo.png',
+    description: 'Building a scalable lead management platform.',
     achievements: [
-      'Built lead verification & enrichment service using Node.js and MySQL.',
-      'Designed reusable React components for dashboards and follow-up tracking.',
-      'Implemented modular architecture with service-controller pattern and Zod validation.',
+      'Developed lead verification & enrichment services with Node.js & MySQL.',
+      'Crafted reusable React components for dashboards & follow-ups.',
+      'Implemented modular architecture with controller-service pattern and validation.',
     ],
-    icon: <FaBriefcase className="w-6 h-6 text-neutral-200" />,
-    companyIcon: <FaBuilding className="w-8 h-8 text-orange-400" />,
+    icon: <FaBriefcase className="w-6 h-6 text-primary" />,
+    companyIcon: <FaBuilding className="w-8 h-8 text-orange-500" />,
   },
   {
     id: 2,
-    title: 'Architected & Deployed ShopXIndia',
+    type: 'project',
+    title: 'Architect & Developer of ShopXIndia',
     company: 'Personal Project',
     location: 'Remote',
+    imageURL: '/shopxindia.png',
     date: 'Feb 2024 - Sep 2025',
-    description:
-      'Designed a full-scale e-commerce platform using a microservices architecture and deployed via AWS ECS Fargate.',
+    description: 'E-commerce platform using microservices and AWS.',
     achievements: [
-      'Used CI/CD with CodePipeline, CodeBuild, and CodeDeploy for efficient releases.',
+      'Implemented CI/CD with AWS CodePipeline, CodeBuild, and CodeDeploy.',
       'Integrated AWS S3, RDS, ElastiCache, CloudFront, and Cognito.',
-      'Managed containerized services via ECS Service Connect and Cloud Map.',
+      'Orchestrated containerized services on ECS with Service Connect & Cloud Map.',
     ],
-    icon: <FaCode className="w-6 h-6 text-neutral-200" />,
-    companyIcon: <FaLaptopCode className="w-8 h-8 text-blue-400" />,
+    icon: <FaCode className="w-6 h-6 text-primary" />,
+    companyIcon: <FaLaptopCode className="w-8 h-8 text-blue-500" />,
   },
 ]
 
-interface TimelineElementProps {
-  item: TimelineItem
-  index: number
-}
+const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ item }) => (
+  <div className="space-y-6">
+    <div className="flex items-center gap-4">
+      {item.type === 'work' && (
+        <Image
+          src={item.imageURL}
+          alt={`${item.company} Logo`}
+          width={48}
+          height={48}
+          className="rounded-md shadow bg-muted p-1"
+        />
+      )}
+      <div>
+        <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
+        <p className="text-sm text-muted-foreground">
+          {item.company} • {item.location}
+        </p>
+        <p className="text-sm text-muted-foreground">{item.date}</p>
+      </div>
+    </div>
 
-const TimelineElementComponent: FC<TimelineElementProps> = ({ item, index }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.2 }}
-    >
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        contentStyle={{
-          background: '#1F2937',
-          color: '#FFFFFF',
-          backdropFilter: 'blur(12px)',
-          border: '1px solid rgba(75, 85, 99, 0.2)',
-          borderRadius: '1rem',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
-          padding: '1.5rem',
-        }}
-        contentArrowStyle={{
-          borderRight: index % 2 === 0 ? '10px solid rgba(31, 41, 55, 0.9)' : 'none',
-          borderLeft: index % 2 !== 0 ? '10px solid rgba(31, 41, 55, 0.9)' : 'none',
-        }}
-        date={item.date}
-        dateClassName="text-gray-200 text-base font-semibold tracking-wide"
-        iconStyle={{
-          background: '#1f2937',
-          color: '#e5e7eb',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 0 0 4px rgba(31, 41, 55, 0.5)',
-        }}
-        icon={item.icon}
-        position={index % 2 === 0 ? 'right' : 'left'}
-      >
-        <div className="p-4 transition-transform duration-300 hover:-translate-y-1">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="flex items-center justify-center w-12 h-12 bg-neutral-700 rounded-full">
-              {item.companyIcon}
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-neutral-100">{item.title}</h3>
-              <p className="text-sm text-neutral-300">
-                {item.company} • {item.location}
-              </p>
-            </div>
-          </div>
-          <p className="text-sm text-neutral-400 mb-4 leading-relaxed">{item.description}</p>
-          <ul className="list-disc list-inside text-sm text-neutral-400 space-y-2">
-            {item.achievements.map((achievement, index) => (
-              <li key={index} className="leading-relaxed">
-                {achievement}
-              </li>
-            ))}
-          </ul>
+    <p className="text-sm text-muted-foreground">{item.description}</p>
+
+    <ul className="list-disc pl-5 space-y-1 text-sm text-foreground">
+      {item.achievements.map((ach, idx) => (
+        <li key={idx}>{ach}</li>
+      ))}
+    </ul>
+
+    {item.type === 'project' && (
+      <div className="w-full mt-4">
+        <div className="relative w-full h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md bg-background">
+          <Image
+            src={item.imageURL}
+            alt={`${item.title} Architecture`}
+            fill
+            className="object-contain"
+            loading="lazy"
+          />
         </div>
-      </VerticalTimelineElement>
-    </motion.div>
-  )
-}
+      </div>
+    )}
+  </div>
+)
 
 const Timeline: FC = () => {
+  const timelineContent = timelineData.map((item) => ({
+    title: item.date,
+    content: <TimelineElement key={item.id} item={item} index={item.id} />,
+  }))
+
   return (
-    <section id="experience" className="py-20 bg-neutral-800">
+    <section id="experience" className="py-20 bg-background text-foreground transition-colors">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -128,18 +117,17 @@ const Timeline: FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl font-bold text-blue-300 tracking-tight">
-            Professional Experience & Achievements
+          <h1 className="text-5xl font-bold tracking-tight text-primary">
+            Professional Experience & Projects
           </h1>
-          <p className="text-neutral-300 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
-            A curated overview of my career milestones and impactful contributions.
+          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-base">
+            Highlights of my career and key projects showcasing my skills & impact.
           </p>
         </motion.div>
-        <VerticalTimeline lineColor="#6b7280">
-          {timelineData.map((item, index) => (
-            <TimelineElementComponent key={item.id} item={item} index={index} />
-          ))}
-        </VerticalTimeline>
+
+        <div className="relative w-full">
+          <TimelineComponent data={timelineContent} />
+        </div>
       </div>
     </section>
   )

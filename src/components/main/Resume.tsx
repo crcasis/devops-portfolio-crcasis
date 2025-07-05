@@ -1,55 +1,75 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaDownload } from 'react-icons/fa'
 import dynamic from 'next/dynamic'
-import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout'
+import { useEffect, useState } from 'react'
+import { FaDownload } from 'react-icons/fa'
 
-import '@react-pdf-viewer/core/lib/styles/index.css'
-import '@react-pdf-viewer/default-layout/lib/styles/index.css'
+const Document = dynamic(() => import('react-pdf').then((mod) => mod.Document), { ssr: false })
+const Page = dynamic(() => import('react-pdf').then((mod) => mod.Page), { ssr: false })
 
-const Viewer = dynamic(() => import('@react-pdf-viewer/core').then((mod) => mod.Viewer), {
-  ssr: false,
-})
-const Worker = dynamic(() => import('@react-pdf-viewer/core').then((mod) => mod.Worker), {
-  ssr: false,
-})
+import 'react-pdf/dist/Page/AnnotationLayer.css'
+import 'react-pdf/dist/Page/TextLayer.css'
 
 const ResumeSection = () => {
-  const defaultLayoutPluginInstance = defaultLayoutPlugin()
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    import('react-pdf').then(({ pdfjs }) => {
+      pdfjs.GlobalWorkerOptions.workerSrc =
+        'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.3.31/build/pdf.worker.min.mjs'
+    })
+  }, [])
+
+  const onDocumentLoadError = (error: Error) => {
+    setError(error.message)
+  }
 
   return (
     <section
       id="resume"
-      className="bg-gradient-to-b from-neutral-100 via-white to-neutral-100 dark:from-neutral-900 dark:via-neutral-950 dark:to-neutral-900 text-neutral-800 dark:text-white px-4 py-24 flex flex-col items-center"
+      className="bg-background text-foreground px-6 py-16 flex flex-col items-center min-h-screen"
     >
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-center mb-12"
+        className="text-center mb-10"
       >
-        <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-500 to-cyan-500 bg-clip-text text-transparent mb-2">
-          My Resume
-        </h2>
-        <p className="text-neutral-600 dark:text-neutral-400 text-sm max-w-xl mx-auto">
-          Explore my full-stack development journey through a clean and interactive resume preview.
+        <h2 className="text-3xl sm:text-4xl font-bold text-primary tracking-tight">My Resume</h2>
+        <p className="mt-2 text-muted-foreground text-sm italic">
+          View my professional qualifications and experience in full-stack development.
         </p>
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="w-full max-w-6xl rounded-2xl border border-neutral-300 dark:border-neutral-700 bg-white/90 dark:bg-neutral-800/40 shadow-xl backdrop-blur-md"
+        className="w-full max-w-4xl bg-card border border-border rounded-lg shadow-lg overflow-hidden"
       >
-        <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">
-          <div className="h-[85vh] overflow-auto custom-scrollbar select-text">
-            <Viewer fileUrl="/resume.pdf" plugins={[defaultLayoutPluginInstance]} />
-          </div>
-        </Worker>
+        <div className="relative w-full overflow-y-auto">
+          {error ? (
+            <p className="text-destructive text-center text-lg p-4">Failed to load PDF: {error}</p>
+          ) : (
+            <Document
+              file="/resume.pdf"
+              onLoadError={onDocumentLoadError}
+              className="flex justify-center w-full"
+            >
+              <Page
+                pageNumber={1}
+                className="flex justify-center"
+                renderTextLayer
+                renderAnnotationLayer
+                width={Math.min(890, typeof window !== 'undefined' ? window.innerWidth - 20 : 1200)}
+                scale={1}
+              />
+            </Document>
+          )}
+        </div>
       </motion.div>
 
       <motion.a
@@ -57,9 +77,9 @@ const ResumeSection = () => {
         download
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="mt-10 inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium shadow-lg hover:shadow-cyan-500/40 transition-all"
+        className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium shadow-md hover:shadow-lg transition-all"
       >
-        <FaDownload className="text-lg" />
+        <FaDownload className="text-base" />
         Download Resume
       </motion.a>
     </section>

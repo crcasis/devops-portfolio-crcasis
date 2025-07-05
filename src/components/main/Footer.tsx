@@ -62,16 +62,11 @@ const Footer: FC = () => {
   }
 
   return (
-    <footer
-      className="relative w-full px-6 py-12 mt-20 bg-neutral-900/60 backdrop-blur-lg border-t border-neutral-700/30"
-      style={{
-        background: 'linear-gradient(to bottom, #171717, #262626)',
-      }}
-    >
+    <footer className="relative w-full px-6 py-12 mt-20 bg-background text-foreground border-t border-border transition-colors">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500" />
       <div className="max-w-7xl mx-auto">
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-neutral-300"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -80,13 +75,13 @@ const Footer: FC = () => {
             <h1 className="text-2xl font-extrabold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
               Ashlok Chaudhary
             </h1>
-            <p className="text-sm text-neutral-400 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Crafting scalable web apps, open-source tools, and innovative digital experiences.
             </p>
           </motion.div>
 
           <motion.div className="space-y-4" variants={childVariants}>
-            <h2 className="text-sm font-semibold text-neutral-400 uppercase tracking-wider">
+            <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
               Quick Links
             </h2>
             <ul className="space-y-2 text-sm">
@@ -94,7 +89,7 @@ const Footer: FC = () => {
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
-                    className="hover:text-blue-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="hover:text-primary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary"
                     aria-label={`Navigate to ${item} section`}
                   >
                     {item}
@@ -105,7 +100,7 @@ const Footer: FC = () => {
           </motion.div>
 
           <motion.div className="space-y-4" variants={childVariants}>
-            <h2 className="text-sm font-semibold text-neutral-400 uppercase tracking-wider">
+            <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
               Connect
             </h2>
             <div className="flex flex-wrap gap-3">
@@ -115,7 +110,7 @@ const Footer: FC = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-neutral-700/50 rounded-full text-neutral-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300"
+                  className="flex items-center justify-center w-10 h-10 bg-muted rounded-full hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   aria-label={`Visit my ${link.label} profile`}
                 >
@@ -132,10 +127,10 @@ const Footer: FC = () => {
           initial="hidden"
           animate="visible"
         >
-          <p className="text-xs text-neutral-500">
+          <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Built with ❤️ by Ashlok Chaudhary.
           </p>
-          <p className="text-xs text-neutral-400">
+          <p className="text-xs text-muted-foreground">
             Visitors:{' '}
             <span className="font-semibold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
               {visitorCount.toLocaleString()}
