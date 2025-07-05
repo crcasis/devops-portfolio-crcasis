@@ -19,6 +19,12 @@ const nextConfig: NextConfig = {
         path: false,
       }
     }
+
+    config.module.rules.push({
+      test: /\.node$/,
+      use: 'ignore-loader',
+    })
+
     return config
   },
 }
