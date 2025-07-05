@@ -74,5 +74,5 @@ jobs:
           SONAR_HOST_URL: https://sonarcloud.io
 
       - name: CI Completed
-        run: echo "🎉 CI pipeline finished successfully."
+        run: echo "🎉 CI pipeline finished successfully !"
         if: success()
