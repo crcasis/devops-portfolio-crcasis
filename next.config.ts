@@ -12,11 +12,10 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        canvas: false,
-        'canvas.node': false,
-      }
+      config.module.rules.push({
+        test: /canvas|canvas\.node$/,
+        use: 'null-loader',
+      })
     }
 
     return config
