@@ -12,18 +12,12 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
+      config.resolve.alias = {
+        ...config.resolve.alias,
         canvas: false,
-        fs: false,
-        path: false,
+        'canvas.node': false,
       }
     }
-
-    config.module.rules.push({
-      test: /\.node$/,
-      use: 'ignore-loader',
-    })
 
     return config
   },
