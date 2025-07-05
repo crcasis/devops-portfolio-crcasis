@@ -50,6 +50,7 @@
     "tailwindcss": "^4",
     "three": "^0.177.0",
     "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5",
     "vercel": "^43.1.0",
     "wrangler": "^4.20.0"
