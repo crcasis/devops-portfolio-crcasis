@@ -2,32 +2,19 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import {
-  Backend_skill,
-  Frontend_skill,
-  Full_stack,
-  Other_skill,
-  Skill,
-  Skill_data,
-} from '@/constants'
+import { Skill, skills } from '@/constants'
 import SkillDataProvider from '../sub/SkillDataProvider'
 
-const allSkills = [
-  ...Skill_data,
-  ...Frontend_skill,
-  ...Backend_skill,
-  ...Full_stack,
-  ...Other_skill,
-]
-  .reduce((map, skill) => {
-    if (!map.has(skill.skill_name)) {
-      map.set(skill.skill_name, { ...skill, width: 40, height: 40 })
-    }
-    return map
-  }, new Map<string, Skill>())
-  .values()
-
-const uniqueSkills = Array.from(allSkills).sort((a, b) => a.skill_name.localeCompare(b.skill_name))
+const uniqueSkills: Skill[] = Array.from(
+  skills
+    .reduce((map, skill) => {
+      if (!map.has(skill.skill_name)) {
+        map.set(skill.skill_name, { ...skill, width: 40, height: 40 })
+      }
+      return map
+    }, new Map<string, Skill>())
+    .values(),
+).sort((a, b) => a.skill_name.localeCompare(b.skill_name))
 
 const Skills = () => {
   return (
@@ -78,6 +65,10 @@ const Skills = () => {
             </motion.div>
           ))}
         </div>
+
+        <p className="mt-8 text-center text-sm text-neutral-400 italic">
+          …and plenty more technologies I&apos;m exploring & mastering every day.
+        </p>
       </div>
     </section>
   )
