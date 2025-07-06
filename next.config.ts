@@ -10,7 +10,7 @@ setupDevPlatform().catch(console.error)
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  webpack: (config, {}) => {
+  webpack: (config) => {
     return config
   },
   turbopack: {},
