@@ -3,7 +3,7 @@
 import { Badge } from '@/components/ui/badge'
 import { slideInFromLeft, slideInFromRight, slideInFromTop } from '@/utils/motion'
 import { motion } from 'framer-motion'
-import { GithubIcon } from 'lucide-react'
+import { FaGithub } from 'react-icons/fa'
 import { FC } from 'react'
 import { TbDeviceLaptop } from 'react-icons/tb'
 import { PointerHighlight } from '../ui/pointer-highlight'
@@ -56,7 +56,8 @@ const HeroContent: FC = () => {
           aria-label="github"
           href="https://github.com/Ashlok2003"
         >
-          <GithubIcon /> GitHub
+          <FaGithub className="mr-1" />
+          GitHub
         </NavbarButton>
       </motion.div>
     </motion.section>

@@ -57,8 +57,8 @@ const timelineData: TimelineItem[] = [
   },
 ]
 
-const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ item }) => (
-  <div className="space-y-6">
+const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ item, index }) => (
+  <div className="space-y-6" key={index}>
     <div className="flex items-center gap-4">
       {item.type === 'work' && (
         <Image

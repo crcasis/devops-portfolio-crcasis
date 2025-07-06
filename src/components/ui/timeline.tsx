@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
-import { useMotionValueEvent, useScroll, useTransform, motion } from 'motion/react'
+import { motion, useScroll, useTransform } from 'motion/react'
 import React, { useEffect, useRef, useState } from 'react'
 
 interface TimelineEntry {

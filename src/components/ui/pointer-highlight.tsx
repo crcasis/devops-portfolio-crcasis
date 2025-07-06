@@ -8,12 +8,12 @@ export function PointerHighlight({
   rectangleClassName,
   pointerClassName,
   containerClassName,
-}: {
+}: Readonly<{
   children: React.ReactNode
   rectangleClassName?: string
   pointerClassName?: string
   containerClassName?: string
-}) {
+}>) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
