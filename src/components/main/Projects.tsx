@@ -122,7 +122,6 @@ const Projects = () => {
                 <Image
                   src={project.imageURL}
                   alt={project.title}
-                  fill={true}
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   quality={80}

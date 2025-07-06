@@ -1,2 +1,5 @@
-const NextImage = (props) => <img {...props} />;
+const NextImage = ({ alt = '', ...rest }) => {
+  return <img alt={alt} {...rest} />;
+};
+
 export default NextImage;

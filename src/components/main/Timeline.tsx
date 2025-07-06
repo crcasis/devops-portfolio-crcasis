@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { Timeline as TimelineComponent } from '@/components/ui/timeline'
 import { FaBriefcase, FaBuilding, FaCode, FaLaptopCode } from 'react-icons/fa'
 
-interface TimelineItem {
+export interface TimelineItem {
   id: number
   type: 'work' | 'project'
   title: string
@@ -57,7 +57,7 @@ const timelineData: TimelineItem[] = [
   },
 ]
 
-const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ item, index }) => (
+export const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ item, index }) => (
   <div className="space-y-6" key={index}>
     <div className="flex items-center gap-4">
       {item.type === 'work' && (
@@ -92,7 +92,6 @@ const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ item, inde
           <Image
             src={item.imageURL}
             alt={`${item.title} Architecture`}
-            fill={true}
             className="object-contain"
             loading="lazy"
           />

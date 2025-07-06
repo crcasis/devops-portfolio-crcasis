@@ -65,6 +65,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   return (
     <motion.div
       ref={ref}
+      data-testid="navbar"
       // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
       className={cn('sticky inset-x-0 top-20 z-40 w-full', className)}
     >
@@ -211,9 +212,17 @@ export const MobileNavToggle = ({
   return (
     <>
       {isOpen ? (
-        <IconX className={cn('text-black dark:text-white', className)} onClick={onClick} />
+        <IconX
+          data-testid="mobile-toggle"
+          className={cn('text-black dark:text-white', className)}
+          onClick={onClick}
+        />
       ) : (
-        <IconMenu2 className={cn('text-black dark:text-white', className)} onClick={onClick} />
+        <IconMenu2
+          data-testid="mobile-toggle"
+          className={cn('text-black dark:text-white', className)}
+          onClick={onClick}
+        />
       )}
     </>
   )

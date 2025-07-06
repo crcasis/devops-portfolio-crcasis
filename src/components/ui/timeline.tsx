@@ -13,11 +13,15 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const [height, setHeight] = useState(0)
 
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect()
-      setHeight(rect.height)
+    function updateHeight() {
+      if (ref.current) {
+        setHeight(ref.current.getBoundingClientRect().height)
+      }
     }
-  }, [ref])
+    updateHeight()
+    window.addEventListener('resize', updateHeight)
+    return () => window.removeEventListener('resize', updateHeight)
+  }, [])
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -50,12 +54,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           </div>
         ))}
         <div
+          data-testid="timeline-line-container"
           style={{
             height: height + 'px',
           }}
           className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] "
         >
           <motion.div
+            data-testid="motion-div"
             style={{
               height: heightTransform,
               opacity: opacityTransform,

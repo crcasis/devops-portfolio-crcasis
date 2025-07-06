@@ -29,6 +29,14 @@ const config: Config = {
   testPathIgnorePatterns: ['/node_modules/', '/.next/', '/dist/', '/coverage/'],
   collectCoverage: true,
   coverageDirectory: 'coverage',
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
+    },
+  },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   coverageReporters: ['text', 'lcov'], // Compatible with SonarQube
   verbose: true,
