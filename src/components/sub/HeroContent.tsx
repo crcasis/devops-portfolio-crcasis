@@ -1,7 +1,7 @@
 'use client'
 
 import { Badge } from '@/components/ui/badge'
-import { slideInFromLeft, slideInFromTop } from '@/utils/motion'
+import { slideInFromLeft, slideInFromRight, slideInFromTop } from '@/utils/motion'
 import { motion } from 'framer-motion'
 import { GithubIcon } from 'lucide-react'
 import { FC } from 'react'
@@ -25,9 +25,11 @@ const HeroContent: FC = () => {
 
       <motion.div
         variants={slideInFromLeft(0.5)}
-        className="flex flex-col gap-3 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight"
+        className="flex flex-col gap-3 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight"
       >
-        <span>Ashlok Chaudhary</span>
+        <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+          Ashlok Chaudhary
+        </span>
         <PointerHighlight rectangleClassName="rounded-none">
           <span className="text-primary p-3">Full-Stack Developer</span>
         </PointerHighlight>
@@ -37,7 +39,7 @@ const HeroContent: FC = () => {
       </motion.div>
 
       <motion.div
-        variants={slideInFromLeft(0.8)}
+        variants={slideInFromRight(0.8)}
         className="mt-4 flex flex-row items-center justify-between gap-2"
       >
         <NavbarButton

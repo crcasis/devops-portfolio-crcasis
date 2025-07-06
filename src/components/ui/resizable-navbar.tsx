@@ -5,7 +5,8 @@ import { IconMenu2, IconX } from '@tabler/icons-react'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'motion/react'
 import Image from 'next/image'
 
-import React, { useRef, useState } from 'react'
+import React, { JSX, useRef, useState } from 'react'
+import { IconType } from 'react-icons/lib'
 import { TbTerminal2 } from 'react-icons/tb'
 
 interface NavbarProps {
@@ -23,8 +24,10 @@ interface NavItemsProps {
   items: {
     name: string
     link: string
+    icon: JSX.Element
   }[]
   className?: string
+  isScrolled: boolean
   onItemClick?: () => void
 }
 
@@ -94,7 +97,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         damping: 50,
       }}
       style={{
-        minWidth: '800px',
+        minWidth: '200px',
       }}
       className={cn(
         'relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent',
@@ -107,7 +110,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   )
 }
 
-export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
+export const NavItems = ({ items, className, isScrolled, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null)
 
   return (
@@ -132,7 +135,9 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
             />
           )}
-          <span className="relative z-20 font-semibold">{item.name}</span>
+          <div className="relative z-20 flex items-center justify-between gap-2">
+            {item.icon} {!isScrolled && <span className="font-semibold">{item.name}</span>}
+          </div>
         </a>
       ))}
     </motion.div>
@@ -228,7 +233,7 @@ export const NavbarLogo = ({ isScrolled }: { isScrolled: boolean }) => {
         className="rounded-full"
       />
       {!isScrolled && (
-        <span className="text-lg font-bold text-neutral-100 group-hover:text-red-500 transition-colors">
+        <span className="text-lg font-bold group-hover:text-red-500 transition-colors">
           Ashlok Chaudhary
         </span>
       )}

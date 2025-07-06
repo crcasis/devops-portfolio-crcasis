@@ -39,16 +39,7 @@ export function Navbar() {
         <NavBody>
           <NavbarLogo isScrolled={isScrolled} />
 
-          <NavItems
-            items={navItems.map((item) => ({
-              ...item,
-              label: (
-                <span className="flex items-center gap-1">
-                  {item.icon} {!isScrolled && <span>{item.name}</span>}
-                </span>
-              ),
-            }))}
-          />
+          <NavItems items={navItems} isScrolled={isScrolled} />
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
@@ -90,11 +81,12 @@ export function Navbar() {
             </div>
           </MobileNavMenu>
         </MobileNav>
-
+      </NavbarWrapper>
+      <div className="flex items-center justify-center">
         {!isScrolled && (
           <hr className="h-1/2 w-[90vw] rounded-full border-gray-500 bg-gradient-to-r from-primary-600 to-primary-800 shadow-md" />
         )}
-      </NavbarWrapper>
+      </div>
     </div>
   )
 }

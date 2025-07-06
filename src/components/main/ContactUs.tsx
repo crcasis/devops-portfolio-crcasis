@@ -1,6 +1,7 @@
 'use client'
 
 import { Variants, motion } from 'framer-motion'
+import { MessageCircle } from 'lucide-react'
 import { FC, FormEvent, useState } from 'react'
 import toast from 'react-hot-toast'
 import {
@@ -12,6 +13,8 @@ import {
   FaUser,
 } from 'react-icons/fa'
 import { FaSquarePhone } from 'react-icons/fa6'
+import { buttonVariants } from '../ui/button'
+import { cn } from '@/lib/utils'
 
 interface FormData {
   name: string
@@ -92,7 +95,7 @@ const ContactUs: FC = () => {
     <section id="contact" className="py-20 bg-background text-foreground transition-colors">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="max-w-7xl mx-auto bg-muted/50 backdrop-blur-lg rounded-2xl p-8 sm:p-10 shadow-2xl border border-border"
+          className="max-w-7xl mx-auto bg-muted/50 backdrop-blur-lg rounded-none p-8 sm:p-10 shadow-2xl border border-border"
           variants={cardVariants}
           initial="hidden"
           animate="visible"
@@ -105,9 +108,7 @@ const ContactUs: FC = () => {
               initial="hidden"
               animate="visible"
             >
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">
-                Connect With Me
-              </h2>
+              <h2 className="text-4xl font-extrabold">Connect With Me</h2>
               <p className="text-muted-foreground leading-relaxed text-base">
                 Have a project in mind or a question? Reach out and let&apos;s turn your ideas into
                 reality.
@@ -165,13 +166,16 @@ const ContactUs: FC = () => {
                       {field === 'email' && (
                         <FaEnvelope className="absolute top-3.5 left-3 text-muted-foreground" />
                       )}
+                      {field === 'subject' && (
+                        <MessageCircle className="absolute top-3.5 left-3 text-muted-foreground" />
+                      )}
                       <input
                         type={field === 'email' ? 'email' : 'text'}
                         name={field}
                         value={formData[field as keyof FormData]}
                         onChange={handleChange}
                         placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                        className="w-full pl-10 pr-4 py-3 bg-background/50 text-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary placeholder-muted-foreground transition-all"
+                        className="w-full pl-10 pr-4 py-3 bg-background/50 text-foreground rounded-none focus:outline-none focus:ring-2 focus:ring-primary placeholder-muted-foreground transition-all"
                         required
                         aria-label={field}
                       />
@@ -183,15 +187,20 @@ const ContactUs: FC = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Your Message"
-                    className="w-full pl-4 pr-4 py-3 bg-background/50 text-foreground rounded-lg h-36 resize-none focus:outline-none focus:ring-2 focus:ring-primary placeholder-muted-foreground transition-all"
+                    placeholder="Please Drop Your Short Message..."
+                    className="w-full pl-4 pr-4 py-3 bg-background/50 text-foreground rounded-none h-36 resize-none focus:outline-none focus:ring-2 focus:ring-primary placeholder-muted-foreground transition-all"
                     required
                     aria-label="Message"
                   />
                 </motion.div>
                 <motion.button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-primary to-purple-500 text-white py-3 rounded-lg flex items-center justify-center gap-2 hover:from-primary/90 hover:to-purple-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className={cn(
+                    buttonVariants({
+                      className:
+                        'w-full py-3 rounded-none flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed',
+                    }),
+                  )}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                   disabled={isSubmitting}

@@ -72,9 +72,7 @@ const Footer: FC = () => {
           animate="visible"
         >
           <motion.div className="space-y-4" variants={childVariants}>
-            <h1 className="text-2xl font-extrabold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              Ashlok Chaudhary
-            </h1>
+            <h1 className="text-2xl font-extrabold bg-clip-text">Ashlok Chaudhary</h1>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Crafting scalable web apps, open-source tools, and innovative digital experiences.
             </p>
