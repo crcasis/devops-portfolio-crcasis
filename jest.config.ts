@@ -11,7 +11,7 @@ const config: Config = {
     '^.+\\.(ts|tsx)$': [
       'ts-jest',
       {
-        tsconfig: 'tsconfig.json',
+        tsconfig: 'tsconfig.jest.json',
         useESM: false, // Use CommonJS for Next.js compatibility
         diagnostics: true, // Enable detailed error messages
       },
