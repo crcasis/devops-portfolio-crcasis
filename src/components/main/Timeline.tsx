@@ -92,7 +92,7 @@ const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ item, inde
           <Image
             src={item.imageURL}
             alt={`${item.title} Architecture`}
-            fill
+            fill={true}
             className="object-contain"
             loading="lazy"
           />
