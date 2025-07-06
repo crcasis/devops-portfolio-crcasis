@@ -81,8 +81,8 @@ const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ item, inde
     <p className="text-sm text-muted-foreground">{item.description}</p>
 
     <ul className="list-disc pl-5 space-y-1 text-sm text-foreground">
-      {item.achievements.map((ach, idx) => (
-        <li key={idx}>{ach}</li>
+      {item.achievements.map((ach) => (
+        <li key={ach}>{ach}</li>
       ))}
     </ul>
 

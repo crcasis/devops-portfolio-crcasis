@@ -59,9 +59,9 @@ export function Navbar() {
           </MobileNavHeader>
 
           <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
-            {navItems.map((item, idx) => (
+            {navItems.map((item) => (
               <a
-                key={`mobile-link-${idx}`}
+                key={`mobile-link-${item.name}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="relative text-neutral-600 dark:text-neutral-300 flex gap-2 items-center"

@@ -102,9 +102,9 @@ const Footer: FC = () => {
               Connect
             </h2>
             <div className="flex flex-wrap gap-3">
-              {socialLinks.map((link, index) => (
+              {socialLinks.map((link) => (
                 <motion.a
-                  key={index}
+                  key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
