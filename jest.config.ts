@@ -17,6 +17,7 @@ const config: Config = {
       },
     ],
   },
+  transformIgnorePatterns: ['/node_modules/(?!(@radix-ui)/)'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^next/image$': '<rootDir>/__mocks__/next/image.js',
