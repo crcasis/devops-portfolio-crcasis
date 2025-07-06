@@ -87,7 +87,7 @@ const Projects = () => {
       <BentoGrid className="max-w-5xl mx-auto">
         {projectsData.map((project, i) => (
           <BentoGridItem
-            key={i}
+            key={project.title}
             title={project.title}
             description={
               <div className="space-y-1 text-sm text-foreground">

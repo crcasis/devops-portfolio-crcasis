@@ -1,13 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 import { cn } from '@/lib/utils'
 import { IconMenu2, IconX } from '@tabler/icons-react'
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'motion/react'
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react'
 import Image from 'next/image'
 
 import React, { JSX, useRef, useState } from 'react'
-import { IconType } from 'react-icons/lib'
-import { TbTerminal2 } from 'react-icons/tb'
 
 interface NavbarProps {
   children: React.ReactNode
@@ -182,7 +179,7 @@ export const MobileNavHeader = ({ children, className }: MobileNavHeaderProps) =
   )
 }
 
-export const MobileNavMenu = ({ children, className, isOpen, onClose }: MobileNavMenuProps) => {
+export const MobileNavMenu = ({ children, className, isOpen }: MobileNavMenuProps) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -211,10 +208,14 @@ export const MobileNavToggle = ({
   isOpen: boolean
   onClick: () => void
 }) => {
-  return isOpen ? (
-    <IconX className={cn('text-black dark:text-white', className)} onClick={onClick} />
-  ) : (
-    <IconMenu2 className={cn('text-black dark:text-white', className)} onClick={onClick} />
+  return (
+    <>
+      {isOpen ? (
+        <IconX className={cn('text-black dark:text-white', className)} onClick={onClick} />
+      ) : (
+        <IconMenu2 className={cn('text-black dark:text-white', className)} onClick={onClick} />
+      )}
+    </>
   )
 }
 
@@ -269,7 +270,7 @@ export const NavbarButton = ({
 
   return (
     <Tag
-      href={href || undefined}
+      href={href ?? undefined}
       className={cn(baseStyles, variantStyles[variant], className)}
       {...props}
     >

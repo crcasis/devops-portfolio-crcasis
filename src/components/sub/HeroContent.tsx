@@ -57,7 +57,7 @@ const HeroContent: FC = () => {
           href="https://github.com/Ashlok2003"
         >
           <FaGithub className="mr-1" />
-          GitHub
+          <span>GitHub</span>
         </NavbarButton>
       </motion.div>
     </motion.section>
