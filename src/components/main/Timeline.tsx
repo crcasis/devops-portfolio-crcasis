@@ -94,6 +94,7 @@ export const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ ite
             alt={`${item.title} Architecture`}
             className="object-contain"
             loading="lazy"
+            fill
           />
         </div>
       </div>

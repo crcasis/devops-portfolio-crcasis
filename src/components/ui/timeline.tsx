@@ -13,12 +13,20 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const [height, setHeight] = useState(0)
 
   useEffect(() => {
-    function updateHeight() {
-      if (ref.current) {
-        setHeight(ref.current.getBoundingClientRect().height)
-      }
+    const updateHeight = () => {
+      if (!ref.current) return
+      requestAnimationFrame(() => {
+        setHeight(ref.current?.getBoundingClientRect().height || 0)
+      })
     }
-    updateHeight()
+    if (typeof ResizeObserver !== 'undefined') {
+      const resizeObserver = new ResizeObserver(updateHeight)
+      if (ref.current) {
+        resizeObserver.observe(ref.current)
+      }
+      return () => resizeObserver.disconnect()
+    }
+
     window.addEventListener('resize', updateHeight)
     return () => window.removeEventListener('resize', updateHeight)
   }, [])

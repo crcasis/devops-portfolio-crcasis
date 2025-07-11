@@ -128,10 +128,7 @@ export const NavItems = ({ items, className, isScrolled, onItemClick }: NavItems
           href={item.link}
         >
           {hovered === idx && (
-            <motion.div
-              layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
-            />
+            <motion.div className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800" />
           )}
           <div className="relative z-20 flex items-center justify-between gap-2">
             {item.icon} {!isScrolled && <span className="font-semibold">{item.name}</span>}

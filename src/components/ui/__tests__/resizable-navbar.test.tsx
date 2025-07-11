@@ -102,7 +102,6 @@ describe('<Resizable Navbar />', () => {
       </MobileNavMenu>,
     )
 
-    // Simulate onClose call directly to cover that branch
     onClose()
     expect(onClose).toHaveBeenCalled()
   })
@@ -155,7 +154,6 @@ describe('<Resizable Navbar />', () => {
   })
 })
 
-// Mock useMotionValueEvent to call the handler immediately with different values
 jest.mock('motion/react', () => ({
   useScroll: jest.fn(() => ({ scrollY: { get: () => 0, onChange: jest.fn() } })),
   useMotionValueEvent: jest.fn(),
@@ -184,7 +182,7 @@ describe('Navbar visibility logic', () => {
   it('sets visible to false when scrollY <= 100', () => {
     const mockUseMotionValueEvent = useMotionValueEvent as jest.Mock
     mockUseMotionValueEvent.mockImplementation((value, event, handler) => {
-      setTimeout(() => handler(50), 0) // async call
+      setTimeout(() => handler(50), 0)
     })
 
     render(
@@ -209,7 +207,7 @@ jest.mock('motion/react', () => ({
 describe('Navbar scroll visibility', () => {
   it('shows navbar when scrollY > 100', async () => {
     ;(useMotionValueEvent as jest.Mock).mockImplementation((_, __, handler) => {
-      setTimeout(() => handler(150), 0) // async to avoid infinite re-renders
+      setTimeout(() => handler(150), 0)
     })
 
     render(
