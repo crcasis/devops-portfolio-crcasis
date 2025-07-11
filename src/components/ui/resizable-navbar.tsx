@@ -122,7 +122,11 @@ export const NavItems = ({ items, className, isScrolled, onItemClick }: NavItems
       {items.map((item, idx) => (
         <a
           onMouseEnter={() => setHovered(idx)}
-          onClick={onItemClick}
+          onClick={(e) => {
+            e.preventDefault()
+            onItemClick?.()
+            document.getElementById(item.link.slice(1))?.scrollIntoView({ behavior: 'smooth' })
+          }}
           className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
           key={`link-${item.name}`}
           href={item.link}

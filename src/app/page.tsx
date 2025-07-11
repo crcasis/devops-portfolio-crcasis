@@ -1,3 +1,4 @@
+import { BlogsSection } from '@/components/main/Blogs'
 import ContactUs from '@/components/main/ContactUs'
 import Hero from '@/components/main/Hero'
 import Projects from '@/components/main/Projects'
@@ -15,6 +16,7 @@ export default function Home() {
         <ResumeSection />
         <Timeline />
         <Projects />
+        <BlogsSection />
         <ContactUs />
         <Toaster position="bottom-right" />
       </div>

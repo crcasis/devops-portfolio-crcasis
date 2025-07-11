@@ -10,6 +10,34 @@ import { PointerHighlight } from '../ui/pointer-highlight'
 import { NavbarButton } from '../ui/resizable-navbar'
 
 const HeroContent: FC = () => {
+  function smoothScrollTo(element: HTMLElement, duration = 1000) {
+    const start = window.scrollY
+    const end = element.getBoundingClientRect().top + start
+    const distance = end - start
+    const startTime = performance.now()
+
+    function scroll(currentTime: number) {
+      const elapsed = currentTime - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      const ease = 1 - Math.pow(1 - progress, 3)
+
+      window.scrollTo(0, start + distance * ease)
+
+      if (elapsed < duration) {
+        requestAnimationFrame(scroll)
+      }
+    }
+
+    requestAnimationFrame(scroll)
+  }
+
+  const handleConnectClick = () => {
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      smoothScrollTo(contactSection, 4200)
+    }
+  }
+
   return (
     <motion.section
       initial="hidden"
@@ -31,7 +59,7 @@ const HeroContent: FC = () => {
           Ashlok Chaudhary
         </span>
         <PointerHighlight rectangleClassName="rounded-none">
-          <span className="text-primary p-3">Full-Stack Developer</span>
+          <span className="text-primary p-3 text-3xl lg:text-6xl">Full-Stack Developer</span>
         </PointerHighlight>
         <span className="text-base text-muted-foreground italic max-w-[500px] mx-auto">
           Crafting clean, performant & responsive web experiences using modern technologies.
@@ -46,6 +74,7 @@ const HeroContent: FC = () => {
           variant="primary"
           className="flex items-center gap-2 shadow"
           aria-label="Scroll Down"
+          onClick={handleConnectClick}
         >
           <span className="w-2 h-2 bg-destructive rounded-full"></span>
           Let&apos;s Connect ↓

@@ -11,6 +11,7 @@ import {
   Navbar as NavbarWrapper,
 } from '@/components/ui/resizable-navbar'
 import { ThemeToggle } from '@/hooks/use-toogle'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { FaBlog, FaBriefcase, FaCode, FaEnvelope, FaProjectDiagram, FaUser } from 'react-icons/fa'
 import { Button } from '../ui/button'
@@ -43,7 +44,13 @@ export function Navbar() {
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="default" className="rounded-full">
+            <Button
+              variant="default"
+              className="rounded-full z-50"
+              onClick={() => {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+              }}
+            >
               <FaEnvelope />
             </Button>
           </div>
@@ -60,19 +67,27 @@ export function Navbar() {
 
           <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
             {navItems.map((item) => (
-              <a
+              <Link
                 key={`mobile-link-${item.name}`}
                 href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false)
+                  document
+                    .getElementById(item.link.slice(1))
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }}
                 className="relative text-neutral-600 dark:text-neutral-300 flex gap-2 items-center"
               >
                 {item.icon} <span>{item.name}</span>
-              </a>
+              </Link>
             ))}
             <div className="flex w-full flex-col gap-4">
               <ThemeToggle />
               <Button
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false)
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                }}
                 variant="default"
                 className="w-full rounded-full"
               >
