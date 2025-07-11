@@ -20,7 +20,7 @@ export interface TimelineItem {
   companyIcon: JSX.Element
 }
 
-const timelineData: TimelineItem[] = [
+export const timelineData: TimelineItem[] = [
   {
     id: 1,
     type: 'work',
