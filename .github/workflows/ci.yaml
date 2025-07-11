@@ -40,10 +40,41 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}-${{ needs.setup.outputs.cache-key }}
       - run: npm ci --prefer-offline
       - run: npm run lint -- --max-warnings=0
+
+  typecheck:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            .next/cache
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}-${{ needs.setup.outputs.cache-key }}
+      - run: npm ci --prefer-offline
       - run: npx tsc --noEmit --skipLibCheck
 
+  codeql:
+    needs: setup
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: 'javascript-typescript'
+          queries: security-and-quality
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          category: '/language:typescript'
+
   build:
-    needs: [setup, lint]
+    needs: [lint, typecheck, codeql]
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
