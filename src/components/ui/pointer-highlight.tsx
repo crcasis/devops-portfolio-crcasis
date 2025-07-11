@@ -19,25 +19,23 @@ export function PointerHighlight({
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
   useEffect(() => {
-    if (containerRef.current) {
-      const { width, height } = containerRef.current.getBoundingClientRect()
+    const currentContainer = containerRef.current
+
+    if (currentContainer) {
+      const { width, height } = currentContainer.getBoundingClientRect()
       setDimensions({ width, height })
-    }
 
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const { width, height } = entry.contentRect
-        setDimensions({ width, height })
-      }
-    })
+      const resizeObserver = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          const { width, height } = entry.contentRect
+          setDimensions({ width, height })
+        }
+      })
 
-    if (containerRef.current) {
-      resizeObserver.observe(containerRef.current)
-    }
+      resizeObserver.observe(currentContainer)
 
-    return () => {
-      if (containerRef.current) {
-        resizeObserver.unobserve(containerRef.current)
+      return () => {
+        resizeObserver.unobserve(currentContainer)
       }
     }
   }, [])
