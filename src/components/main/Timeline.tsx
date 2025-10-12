@@ -113,7 +113,7 @@ export const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ ite
       ))}
     </ul>
 
-    {/* {item.type === 'project' && (
+    {item.type === 'project' && (
       <div className="w-full mt-4">
         <div className="relative w-full h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md bg-background">
           <Image
@@ -125,7 +125,7 @@ export const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ ite
           />
         </div>
       </div>
-    )} */}
+    )}
   </div>
 )
 
