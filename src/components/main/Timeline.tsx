@@ -65,7 +65,7 @@ export const timelineData: TimelineItem[] = [
   {
     id: 3,
     type: 'project',
-    title: 'AZURE DevOps Engineer',
+    title: 'DevOps Engineer Consultant',
     company: 'Ebcont gmbh',
     location: 'Remote',
     imageURL: '/ebcont.png',
@@ -78,6 +78,7 @@ export const timelineData: TimelineItem[] = [
       'Orchestrated containerized services on Azure with Service Connect & Cloud Map.',
       'Implement Azure App Service, Azure Functions, Azure AD, Load Balancing, Azure Container Registry, Azure Container Service, Azure Kubernetes Service, etc.',
       'Use Jenking pipelines to build and deploy microservices.',
+      'Worked with AWS infrastructure as Code, load balancing, cloudfront, s3, rds, etc .',
     ],
     icon: <FaCode className="w-6 h-6 text-primary" />,
     companyIcon: <FaLaptopCode className="w-8 h-8 text-blue-500" />,
