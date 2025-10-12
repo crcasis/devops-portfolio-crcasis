@@ -128,7 +128,7 @@ const ContactUs: FC = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <FaSquarePhone className="text-primary text-lg" />
-                  <span className="text-sm font-medium select-text">+91 77670 12860</span>
+                  <span className="text-sm font-medium select-text">+34 629 785 212</span>
                   <button
                     onClick={() => copyToClipboard('+34 629785212', 'Phone number')}
                     className="text-muted-foreground hover:text-primary transition"

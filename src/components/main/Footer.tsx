@@ -26,17 +26,17 @@ const Footer: FC = () => {
 
   const socialLinks = [
     {
-      href: 'https://github.com/Ashlok2003',
+      href: 'https://github.com/crcasis',
       icon: <RxGithubLogo className="w-5 h-5" />,
       label: 'GitHub',
     },
     {
-      href: 'https://www.linkedin.com/in/ashlok2003/',
+      href: 'https://www.linkedin.com/in/cristian-casis-villarreal/',
       icon: <FaLinkedin className="w-5 h-5" />,
       label: 'LinkedIn',
     },
     {
-      href: 'https://x.com/ashlok2003',
+      href: 'https://x.com/crcasis',
       icon: <FaTwitter className="w-5 h-5" />,
       label: 'Twitter',
     },

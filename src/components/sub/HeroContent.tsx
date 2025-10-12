@@ -59,7 +59,7 @@ const HeroContent: FC = () => {
           Ashlok Chaudhary
         </span>
         <PointerHighlight rectangleClassName="rounded-none">
-          <span className="text-primary p-3 text-3xl lg:text-6xl">Full-Stack Developer</span>
+          <span className="text-primary p-3 text-3xl lg:text-6xl">Senior DevOps Engineer</span>
         </PointerHighlight>
         <span className="text-base text-muted-foreground italic max-w-[500px] mx-auto">
           Crafting clean, performant & responsive web experiences using modern technologies.
