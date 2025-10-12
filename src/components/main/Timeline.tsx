@@ -85,16 +85,16 @@ export const timelineData: TimelineItem[] = [
 ]
 
 export const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ item, index }) => (
-  <div className="space-y-6" key={index}>
-    <div className="flex items-center gap-4">
-      {item.type === 'work' && (
-        <Image
-          src={item.imageURL}
-          alt={`${item.company} Logo`}
-          width={48}
-          height={48}
-          className="rounded-md shadow bg-muted p-1"
-        />
+  // <div className="space-y-6" key={index}>
+  //   <div className="flex items-center gap-4">
+  //     {item.type === 'work' && (
+  //       <Image
+  //         src={item.imageURL}
+  //         alt={`${item.company} Logo`}
+  //         width={48}
+  //         height={48}
+  //         className="rounded-md shadow bg-muted p-1"
+  //       />
       )}
       <div>
         <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
