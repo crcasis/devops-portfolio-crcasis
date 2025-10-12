@@ -47,7 +47,7 @@ const HeroContent: FC = () => {
       <motion.div variants={slideInFromTop} className="flex items-center gap-2">
         <Badge variant="secondary" className="bg-red-500 text-white dark:bg-red-500 font-extrabold">
           <TbDeviceLaptop />
-          The Developer
+          The Cloud Architect
         </Badge>
       </motion.div>
 
@@ -62,7 +62,7 @@ const HeroContent: FC = () => {
           <span className="text-primary p-3 text-3xl lg:text-6xl">Senior DevOps Engineer</span>
         </PointerHighlight>
         <span className="text-base text-muted-foreground italic max-w-[500px] mx-auto">
-          Crafting clean, performant & responsive web experiences using modern technologies.
+          I build modern, scalable, and secure cloud architectures on AWS, Azure, and GCP.
         </span>
       </motion.div>
 
@@ -83,7 +83,7 @@ const HeroContent: FC = () => {
           variant="dark"
           className="flex items-center gap-2 shadow outline"
           aria-label="github"
-          href="https://github.com/Ashlok2003"
+          href="https://github.com/crcasis"
         >
           <FaGithub className="mr-1" />
           <span>GitHub</span>
