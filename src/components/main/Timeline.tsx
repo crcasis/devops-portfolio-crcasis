@@ -85,16 +85,16 @@ export const timelineData: TimelineItem[] = [
 ]
 
 export const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ item, index }) => (
-  // <div className="space-y-6" key={index}>
-  //   <div className="flex items-center gap-4">
-  //     {item.type === 'work' && (
-  //       <Image
-  //         src={item.imageURL}
-  //         alt={`${item.company} Logo`}
-  //         width={48}
-  //         height={48}
-  //         className="rounded-md shadow bg-muted p-1"
-  //       />
+  <div className="space-y-6" key={index}>
+    <div className="flex items-center gap-4">
+      {item.type === 'work' && (
+        <Image
+          src={item.imageURL}
+          alt={`${item.company} Logo`}
+          width={48}
+          height={48}
+          className="rounded-md shadow bg-muted p-1"
+        />
       )}
       <div>
         <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
@@ -113,7 +113,7 @@ export const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ ite
       ))}
     </ul>
 
-    {item.type === 'project' && (
+    {/* {item.type === 'project' && (
       <div className="w-full mt-4">
         <div className="relative w-full h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md bg-background">
           <Image
@@ -125,7 +125,7 @@ export const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ ite
           />
         </div>
       </div>
-    )}
+    )} */}
   </div>
 )
 
