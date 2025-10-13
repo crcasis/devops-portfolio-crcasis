@@ -68,7 +68,7 @@ export const timelineData: TimelineItem[] = [
     title: 'DevOps Engineer Consultant',
     company: 'Ebcont gmbh',
     location: 'Remote',
-    imageURL: '/ebcont.png',
+    imageURL: '/shopxindia.png',
     date: '2017 - 2019',
     description: 'E-commerce platform using microservices and Azure.',
     achievements: [
