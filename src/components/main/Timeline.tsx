@@ -83,6 +83,24 @@ export const timelineData: TimelineItem[] = [
     icon: <FaCode className="w-6 h-6 text-primary" />,
     companyIcon: <FaLaptopCode className="w-8 h-8 text-blue-500" />,
   },
+  {
+    id: 4,
+    type: 'project',
+    title: 'AWS DevOps Engineer',
+    company: 'Lilly farma company',
+    location: 'Remote',
+    imageURL: '/lilly.png',
+    date: '2024',
+    description: 'Freelancer',
+    achievements: [
+      'Implemented CI/CD with AWS.',
+      'Deploy kafka clusters with terraform and create automate pipelines',
+      'Connect kafka clusters with kubernetes microservices in EKS',
+      'Align with team in India to be able to fix issues',
+    ],
+    icon: <FaCode className="w-6 h-6 text-primary" />,
+    companyIcon: <FaBuilding className="w-8 h-8 text-orange-500" />,
+  },
 ]
 
 export const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ item, index }) => (
