@@ -98,8 +98,8 @@ export const timelineData: TimelineItem[] = [
       'Connect kafka clusters with kubernetes microservices in EKS',
       'Align with team in India to be able to fix issues',
     ],
-    icon: <FaCode className="w-6 h-6 text-primary" />,
-    companyIcon: <FaBuilding className="w-8 h-8 text-orange-500" />,
+    icon: <FaBriefcase className="w-6 h-6 text-primary" />,
+    companyIcon: <FaBuilding className="w-8 h-8 text-blue-500" />,
   },
 ]
 
