@@ -89,7 +89,7 @@ export const timelineData: TimelineItem[] = [
     title: 'AWS DevOps Engineer',
     company: 'Lilly farma company',
     location: 'Remote',
-    imageURL: '/lilly.png',
+    imageURL: '',
     date: '2024',
     description: 'Freelancer',
     achievements: [
