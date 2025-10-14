@@ -85,11 +85,11 @@ export const timelineData: TimelineItem[] = [
   },
   {
     id: 4,
-    type: 'project',
+    type: 'work',
     title: 'AWS DevOps Engineer',
     company: 'Lilly farma company',
     location: 'Remote',
-    imageURL: '',
+    imageURL: '/lilly.png',
     date: '2024',
     description: 'Freelancer',
     achievements: [
