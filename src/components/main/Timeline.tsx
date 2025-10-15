@@ -101,6 +101,30 @@ export const timelineData: TimelineItem[] = [
     icon: <FaBriefcase className="w-6 h-6 text-primary" />,
     companyIcon: <FaBuilding className="w-8 h-8 text-blue-500" />,
   },
+  {
+    id: 5,
+    type: 'work',
+    title: 'AZURE & GCP & AWS DevOps Engineer / Cloud Architect',
+    company: 'Shakers',
+    location: 'Remote',
+    imageURL: '/shakers.png',
+    date: 'Freelancer',
+    description: 'Freelancer',
+    achievements: [
+      'Implemented CI/CD with AZURE & GCP & AWS.',
+      'To implement CI/CD I worked with gitlab, github actions, jenkins, tekton, argocd and azure devops'
+      'Deploy Infrastructure as code with terraform and cloudformation - multicloud',
+      'Design cloud architecture in AWS, Azure and GCP',
+      'Develop new features aligned with development teams',
+      'Integrate new cost-management tools and send reports to slack or teams channels'
+      'Work with international teams'
+      'Travel to USA and central european countries design and implement cloud architecture',
+      'Implement kubernetes (EKS, AKS, GKE) using terraform and deploy services using kustomize and helm',
+      'Align ops team with security team and create security policies for the companies',
+    ],
+    icon: <FaBriefcase className="w-6 h-6 text-primary" />,
+    companyIcon: <FaBuilding className="w-8 h-8 text-blue-500" />,
+  },
 ]
 
 export const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ item, index }) => (
