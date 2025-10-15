@@ -90,7 +90,7 @@ export const timelineData: TimelineItem[] = [
     company: 'Lilly farma company',
     location: 'Remote',
     imageURL: '/lilly.png',
-    date: '2024',
+    date: 'Freelancer',
     description: 'Freelancer',
     achievements: [
       'Implemented CI/CD with AWS.',
