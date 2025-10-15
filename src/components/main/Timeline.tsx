@@ -112,12 +112,12 @@ export const timelineData: TimelineItem[] = [
     description: 'Freelancer',
     achievements: [
       'Implemented CI/CD with AZURE & GCP & AWS.',
-      'To implement CI/CD I worked with gitlab, github actions, jenkins, tekton, argocd and azure devops'
+      'To implement CI/CD I worked with gitlab, github actions, jenkins, tekton, argocd and azure devops',
       'Deploy Infrastructure as code with terraform and cloudformation - multicloud',
       'Design cloud architecture in AWS, Azure and GCP',
       'Develop new features aligned with development teams',
-      'Integrate new cost-management tools and send reports to slack or teams channels'
-      'Work with international teams'
+      'Integrate new cost-management tools and send reports to slack or teams channels',
+      'Work with international teams',
       'Travel to USA and central european countries design and implement cloud architecture',
       'Implement kubernetes (EKS, AKS, GKE) using terraform and deploy services using kustomize and helm',
       'Align ops team with security team and create security policies for the companies',
