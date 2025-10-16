@@ -17,7 +17,7 @@ const projectsData = [
   {
     title: 'Scilife',
     description:
-      'A microservices-based platform running in Kubernetes EKS and managed services running in AWS. DevSecOps implemented in this project.',
+      'A microservices-based platform running in Kubernetes EKS and managed services running in AWS. DevSecOps implemented.',
     imageURL: '/scilife.png',
     github: 'https://www.scilife.io',
     live: 'https://www.scilife.io',
