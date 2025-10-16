@@ -17,7 +17,7 @@ const projectsData = [
   {
     title: 'Scilife',
     description:
-      'A microservices-based platform running in Kubernetes EKS and managed services running in AWS. To be able to manage and deploy all infrastructure using terraform and backends in s3. Monitoing - alerting and logging using ELK stack and prometheus and grafana.',
+      'A microservices-based platform running in Kubernetes EKS and managed services running in AWS. DevSecOps implemented in this project.',
     imageURL: '/scilife.png',
     web: 'https://www.scilife.io',
     live: 'https://www.scilife.io',
