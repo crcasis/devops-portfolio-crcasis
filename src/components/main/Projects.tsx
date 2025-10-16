@@ -15,44 +15,44 @@ import { BentoGrid, BentoGridItem } from '../ui/bento-grid'
 
 const projectsData = [
   {
-    title: 'ShopXIndia',
+    title: 'Scilife',
     description:
-      'A microservices-based e-commerce platform using AWS ECS Fargate, CI/CD, and full observability on AWS.',
-    imageURL: '/shopxindia.png',
+      'A microservices-based platform running in Kubernetes EKS and managed services running in AWS. To be able to manage and deploy all infrastructure using terraform and backends in s3. Monitoing - alerting and logging using ELK stack and prometheus and grafana.',
+    imageURL: '/scilife.png',
     github: 'https://github.com/Ashlok2003/ShopxIndia',
     live: 'https://github.com/Ashlok2003/ShopxIndia',
     icon: <IconClipboardCopy className="h-4 w-4 text-muted-foreground" />,
   },
   {
-    title: 'SocialPedia',
+    title: 'Deepdots',
     description:
-      'A social media platform with real-time chat, JWT auth, and responsive design using MERN stack.',
-    imageURL: '/socialpedia.png',
+      'An AI feedback platform running in GCP using managed services, terraform for infrastructure. Few services: composer, cloud functions, cloud run jobs, mysql dbs, vertex templates, bastions, grafana machines, gemini, etc.',
+    imageURL: '/deepdots.png',
     github: 'https://github.com/Ashlok2003/Socialpedia',
     live: 'https://socialpedia-tau.vercel.app/',
     icon: <IconFileBroken className="h-4 w-4 text-muted-foreground" />,
   },
   {
-    title: 'FileShareX',
+    title: 'Coca-Cola',
     description: 'File sharing app with QR code, SMTP email integration, and clean React UI.',
-    imageURL: '/filesharex.png',
+    imageURL: '/coca-cola.png',
     github: 'https://github.com/Ashlok2003/File-Sharer',
     live: 'https://file-sharer-sepia.vercel.app/',
     icon: <IconSignature className="h-4 w-4 text-muted-foreground" />,
   },
   {
-    title: 'Portfolio',
+    title: 'Capturetheatlas',
     description:
       'Modern portfolio built with Next.js, TailwindCSS, and ShadCN, deployed on Cloudflare Pages.',
-    imageURL: '/portfolio-project.png',
+    imageURL: '/capturetheatlas.png',
     github: 'https://github.com/Ashlok2003/portfolio',
     live: 'https://ashlok.dev/',
     icon: <IconTableColumn className="h-4 w-4 text-muted-foreground" />,
   },
   {
-    title: 'Scheduly.AI',
+    title: 'Virtualthecloset',
     description: 'AI assistant for booking Google Calendar meetings via conversational chat.',
-    imageURL: '/scheduly-ai.png',
+    imageURL: '/virtualthecloset.png',
     github: 'https://github.com/Ashlok2003/Scheduly.AI',
     live: 'https://scheduly-ai-client.onrender.com/',
     icon: <IconArrowWaveRightUp className="h-4 w-4 text-muted-foreground" />,
@@ -79,7 +79,7 @@ const Projects = () => {
         >
           <h1 className="text-4xl md:text-5xl font-bold bg-clip-text ">My Projects</h1>
           <p className="text-muted-foreground mt-4 max-w-3xl mx-auto text-base font-semibold md:text-lg italic">
-            A collection of innovative projects showcasing technical expertise & creativity.
+            A collection of freelamce projects showcasing technical expertise & creativity.
           </p>
         </motion.div>
       </div>
