@@ -19,8 +19,8 @@ const projectsData = [
     description:
       'A microservices-based platform running in Kubernetes EKS and managed services running in AWS. To be able to manage and deploy all infrastructure using terraform and backends in s3. Monitoing - alerting and logging using ELK stack and prometheus and grafana.',
     imageURL: '/scilife.png',
-    github: 'https://github.com/Ashlok2003/ShopxIndia',
-    live: 'https://github.com/Ashlok2003/ShopxIndia',
+    web: 'https://www.scilife.io',
+    live: 'https://www.scilife.io',
     icon: <IconClipboardCopy className="h-4 w-4 text-muted-foreground" />,
   },
   {
