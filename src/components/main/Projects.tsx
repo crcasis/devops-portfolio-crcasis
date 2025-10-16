@@ -26,7 +26,7 @@ const projectsData = [
   {
     title: 'Deepdots',
     description:
-      'An AI feedback platform running in GCP using managed services, terraform for infrastructure. Few services: composer, cloud functions, cloud run jobs, mysql dbs, vertex templates, bastions, grafana machines, gemini, etc.',
+      'An AI feedback platform running in GCP using managed services, terraform for infrastructure. Few services: composer, app engine (apis), cloud functions, cloud run jobs, mysql dbs, vertex templates, bastions, grafana machines, gemini, etc.',
     imageURL: '/deepdots.png',
     github: 'https://github.com/Ashlok2003/Socialpedia',
     live: 'https://socialpedia-tau.vercel.app/',
