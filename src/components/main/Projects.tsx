@@ -79,7 +79,7 @@ const Projects = () => {
         >
           <h1 className="text-4xl md:text-5xl font-bold bg-clip-text ">My Projects</h1>
           <p className="text-muted-foreground mt-4 max-w-3xl mx-auto text-base font-semibold md:text-lg italic">
-            A collection of freelamce projects showcasing technical expertise & creativity.
+            A collection of freelance projects showcasing technical expertise & creativity.
           </p>
         </motion.div>
       </div>
