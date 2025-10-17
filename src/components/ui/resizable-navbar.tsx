@@ -237,7 +237,7 @@ export const NavbarLogo = ({ isScrolled }: { isScrolled: boolean }) => {
       aria-label="Navigate to About section"
     >
       <Image
-        src="/ashlok.jpg"
+        src="/icon.png"
         alt="Cristian Casis"
         width={32}
         height={32}

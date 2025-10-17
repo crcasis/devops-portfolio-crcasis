@@ -17,7 +17,7 @@ const blogs = [
   },
   {
     id: 2,
-    title: '💬 SocialPedia: A Modern Social Media Platform',
+    title: '💬 Malt: Consultant',
     excerpt:
       'From real-time chat to WebRTC calls — building SocialPedia, a full-stack social media app.',
     content: `SocialPedia is a social media platform built using Node.js, React, MongoDB, Redux, WebSockets, and WebRTC.
