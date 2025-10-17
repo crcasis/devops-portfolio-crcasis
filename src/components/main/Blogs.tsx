@@ -7,15 +7,13 @@ import { useState } from 'react'
 const blogs = [
   {
     id: 1,
-    title: '🛒 ShopXIndia: A Scalable E-Commerce Platform',
+    title: '🚀 Coca-Cola - Thekeenfolks: Multi-tenant AZURE Infrastructure',
     excerpt:
-      'Behind the scenes of ShopXIndia — a microservices-based e-commerce platform built with GraphQL Federation.',
-    content: `ShopXIndia is a fully-featured e-commerce platform built with a microservices architecture
-and powered by GraphQL Federation for unified APIs.
-It leverages modern technologies to provide a seamless shopping experience while keeping the backend
-modular and maintainable.
-In this blog, I discuss how I designed the federated services, implemented authentication,
-and optimized query performance for scalability.`,
+      'Behind the scenes of Thekeenfolks — a microservices-based project running in Azure using scrum methodologies for sprints.',
+    content: `My responsability was design the architecture and apply using terraform in Azure, to be able to deploy a multitenant infrastructure.
+    The services are deployed: Azure AKS, Azure VNETs, Azure AAD, Azure Key Vault, Azure storage / SQL / Redis, Azure Monitor + Logs Analytics & Azure DevOps.
+    
+    `,
   },
   {
     id: 2,
