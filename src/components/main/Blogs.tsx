@@ -17,23 +17,23 @@ const blogs = [
   },
   {
     id: 2,
-    title: '💬 Malt: Consultant',
+    title: '💬 Malt: Consultant: AWS Infrastructure with Kubernetes and managed services',
     excerpt:
-      'From real-time chat to WebRTC calls — building SocialPedia, a full-stack social media app.',
-    content: `SocialPedia is a social media platform built using Node.js, React, MongoDB, Redux, WebSockets, and WebRTC.
-It supports features like real-time chat, notifications, friend management, and live audio/video calls.
-In this blog, I share how I implemented real-time capabilities, tackled state management challenges,
-and created an engaging, responsive user experience.`,
+      'In this project I had to deploy all infrastructure using terragrunt, github actions pipelines for IaaC and the deployment of the applications.',
+    content: `I created 3 environment for infrastructure and deployment of the microservices, configuration of kubernetes, operators, security, etc.
+    AWS lambda functions, rds, redis, elasticsearch and AWS guarduty has been integrated in this project.
+    
+    `,
   },
   {
     id: 3,
-    title: '🔒 FileShareX: Secure File Sharing Made Easy',
+    title: '🔒 CaptureTheAtlas: E-commerce platform using microservices and AWS',
     excerpt:
-      'Designing and building FileShareX — a secure, simple, and user-friendly file sharing app.',
-    content: `FileShareX is a secure file-sharing application built with React, Node.js, and MongoDB.
-It enables users to share files easily using QR codes, email links, or direct links — no complex setup required.
-In this blog, I explain how I implemented secure file uploads & downloads, integrated QR and email sharing,
-and designed a clean UX for hassle-free collaboration.`,
+      'This project has been deployed using EC2, RDS, Load Balancers and Cloudfront services.',
+    content: `This website needs to scale-up and down depends the number of users, so I have created an autoscaling group to handle the load.
+    I have also included ACM certificates pointed to cloudfront distribution. Pipelines are in gitlab pipelines.
+    
+    `,
   },
 ]
 
