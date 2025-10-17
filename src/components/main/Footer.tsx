@@ -72,9 +72,9 @@ const Footer: FC = () => {
           animate="visible"
         >
           <motion.div className="space-y-4" variants={childVariants}>
-            <h1 className="text-2xl font-extrabold bg-clip-text">Ashlok Chaudhary</h1>
+            <h1 className="text-2xl font-extrabold bg-clip-text">Cristian Casis</h1>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Crafting scalable web apps, open-source tools, and innovative digital experiences.
+              Senior DevOps engineer - AWS, Azure & GCP - Terraform
             </p>
           </motion.div>
 
@@ -126,7 +126,7 @@ const Footer: FC = () => {
           animate="visible"
         >
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Built with ❤️ by Ashlok Chaudhary.
+            © {new Date().getFullYear()} Built with ❤️ by Cristian Casis.
           </p>
           <p className="text-xs text-muted-foreground">
             Visitors:{' '}
