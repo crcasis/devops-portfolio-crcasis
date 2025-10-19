@@ -59,7 +59,7 @@ const HeroContent: FC = () => {
           Cristian Casis
         </span>
         <PointerHighlight rectangleClassName="rounded-none">
-          <span className="text-primary p-3 text-3xl lg:text-6xl">Senior DevOps Engineer</span>
+          <span className="text-primary p-3 text-3xl lg:text-6xl">Senior DevSecOps Engineer</span>
         </PointerHighlight>
         <span className="text-base text-muted-foreground italic max-w-[500px] mx-auto">
           I build modern, scalable, and secure cloud architectures on AWS, Azure, and GCP.

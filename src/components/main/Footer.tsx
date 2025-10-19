@@ -74,7 +74,7 @@ const Footer: FC = () => {
           <motion.div className="space-y-4" variants={childVariants}>
             <h1 className="text-2xl font-extrabold bg-clip-text">Cristian Casis</h1>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Senior DevOps engineer - AWS, Azure & GCP - Terraform
+              Senior DevSecOps engineer - AWS, Azure & GCP - Terraform
             </p>
           </motion.div>
 
