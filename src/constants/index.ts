@@ -6,8 +6,8 @@ export interface Skill {
 }
 
 export const skills: Skill[] = [
-  { skill_name: 'Helm', Image: '/html.png', width: 80, height: 80 },
-  { skill_name: 'Github Actions', Image: '/css.png', width: 80, height: 80 },
+  { skill_name: 'Helm', Image: '/helm.svg', width: 80, height: 80 },
+  { skill_name: 'Github Actions', Image: '/github-actions.png', width: 80, height: 80 },
   { skill_name: 'JavaScript', Image: '/js.png', width: 65, height: 65 },
   { skill_name: 'Grafana', Image: '/ts.png', width: 80, height: 80 },
   { skill_name: 'Prometheus', Image: '/react.png', width: 80, height: 80 },
@@ -34,6 +34,7 @@ export const skills: Skill[] = [
   { skill_name: 'Confluence', Image: '/confluence.png', width: 80, height: 80 },
   { skill_name: 'Kustomize', Image: '/kustomize.png', width: 80, height: 80 },
   { skill_name: 'VertexAI', Image: '/vertexai.png', width: 80, height: 80 },
+  { skill_name: 'AzureDevOps', Image: '/azure-devops.png', width: 80, height: 80 },
 ]
 
 export const Socials = [
