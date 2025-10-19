@@ -8,7 +8,7 @@ export interface Skill {
 export const skills: Skill[] = [
   { skill_name: 'Helm', Image: '/helm.svg', width: 80, height: 80 },
   { skill_name: 'Github Actions', Image: '/github-actions.png', width: 80, height: 80 },
-  { skill_name: 'JavaScript', Image: '/js.png', width: 65, height: 65 },
+  { skill_name: 'Bash', Image: '/bash.png', width: 65, height: 65 },
   { skill_name: 'Grafana', Image: '/grafana.png', width: 80, height: 80 },
   { skill_name: 'Prometheus', Image: '/prometheus.png', width: 80, height: 80 },
   { skill_name: 'Datadog', Image: '/datadog.webp', width: 80, height: 80 },
@@ -16,7 +16,7 @@ export const skills: Skill[] = [
   { skill_name: 'Nginx', Image: '/nginx.png', width: 80, height: 80 },
   { skill_name: 'Jira', Image: '/jira.png', width: 80, height: 80 },
   { skill_name: 'GitLab', Image: '/gitlab.png', width: 80, height: 80 },
-  { skill_name: 'Node.js', Image: '/node-js.png', width: 80, height: 80 },
+  { skill_name: 'Python', Image: '/python.jpeg', width: 80, height: 80 },
   { skill_name: 'GCloud', Image: '/gcloud.png', width: 80, height: 80 },
   { skill_name: 'Azure', Image: '/azure.png', width: 55, height: 55 },
   { skill_name: 'PostgreSQL', Image: '/postgresql.png', width: 70, height: 70 },
