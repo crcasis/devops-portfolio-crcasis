@@ -1,6 +1,7 @@
 'use client'
 
 import { Badge } from '@/components/ui/badge'
+import { personalInfo } from '@/constants'
 import { slideInFromLeft, slideInFromRight, slideInFromTop } from '@/utils/motion'
 import { motion } from 'framer-motion'
 import { FaGithub } from 'react-icons/fa'
@@ -83,7 +84,7 @@ const HeroContent: FC = () => {
           variant="dark"
           className="flex items-center gap-2 shadow outline"
           aria-label="github"
-          href="https://github.com/crcasis"
+          href={personalInfo.githubUrl}
         >
           <FaGithub className="mr-1" />
           <span>GitHub</span>

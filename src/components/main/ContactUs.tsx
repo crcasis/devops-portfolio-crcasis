@@ -5,6 +5,7 @@ import { FC } from 'react'
 import toast from 'react-hot-toast'
 import { FaEnvelope, FaMapMarkerAlt, FaRegCopy } from 'react-icons/fa'
 import { FaSquarePhone } from 'react-icons/fa6'
+import { personalInfo } from '@/constants'
 
 const ContactUs: FC = () => {
   const copyToClipboard = (text: string, label: string) => {
@@ -51,9 +52,9 @@ const ContactUs: FC = () => {
             <div className="space-y-5 text-foreground">
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-primary text-lg" />
-                <span className="text-sm font-medium select-text">crcasis@proton.me</span>
+                <span className="text-sm font-medium select-text">{personalInfo.email}</span>
                 <button
-                  onClick={() => copyToClipboard('crcasis@proton.me', 'Email')}
+                  onClick={() => copyToClipboard(personalInfo.email, 'Email')}
                   className="text-muted-foreground hover:text-primary transition"
                   aria-label="Copy email"
                 >
@@ -62,9 +63,9 @@ const ContactUs: FC = () => {
               </div>
               <div className="flex items-center gap-3">
                 <FaSquarePhone className="text-primary text-lg" />
-                <span className="text-sm font-medium select-text">+34 629 785 212</span>
+                <span className="text-sm font-medium select-text">{personalInfo.phone}</span>
                 <button
-                  onClick={() => copyToClipboard('+34 629785212', 'Phone number')}
+                  onClick={() => copyToClipboard(personalInfo.phone, 'Phone number')}
                   className="text-muted-foreground hover:text-primary transition"
                   aria-label="Copy phone number"
                 >
@@ -73,7 +74,7 @@ const ContactUs: FC = () => {
               </div>
               <div className="flex items-center gap-3">
                 <FaMapMarkerAlt className="text-primary text-lg" />
-                <span className="text-sm font-medium select-text">Madrid, Spain</span>
+                <span className="text-sm font-medium select-text">{personalInfo.location}</span>
               </div>
             </div>
           </motion.div>

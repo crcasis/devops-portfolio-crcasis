@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { FC, useEffect, useState } from 'react'
 import { FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { RxGithubLogo } from 'react-icons/rx'
+import { personalInfo } from '@/constants'
 
 const Footer: FC = () => {
   const [visitorCount, setVisitorCount] = useState<number>(0)
@@ -26,23 +27,23 @@ const Footer: FC = () => {
 
   const socialLinks = [
     {
-      href: 'https://github.com/crcasis',
+      href: personalInfo.githubUrl,
       icon: <RxGithubLogo className="w-5 h-5" />,
       label: 'GitHub',
     },
     {
-      href: 'https://www.linkedin.com/in/cristian-casis-villarreal/',
+      href: personalInfo.linkedinUrl,
       icon: <FaLinkedin className="w-5 h-5" />,
       label: 'LinkedIn',
     },
     {
-      href: 'https://x.com/crcasis',
+      href: personalInfo.twitterUrl,
       icon: <FaTwitter className="w-5 h-5" />,
       label: 'Twitter',
     },
   ]
 
-  const quickLinks = ['About', 'Skills', 'Projects']
+  const quickLinks = ['About', 'Skills', 'Experience', 'Projects', 'Blogs']
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -72,7 +73,7 @@ const Footer: FC = () => {
           animate="visible"
         >
           <motion.div className="space-y-4" variants={childVariants}>
-            <h1 className="text-2xl font-extrabold bg-clip-text">Cristian Casis</h1>
+            <h1 className="text-2xl font-extrabold bg-clip-text">{personalInfo.name}</h1>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Senior DevSecOps engineer - AWS, Azure & GCP - Terraform
             </p>

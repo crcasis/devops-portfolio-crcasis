@@ -32,20 +32,12 @@ export const skills: Skill[] = [
   { skill_name: 'VertexAI', Image: '/vertex.png', width: 80, height: 80 },
 ]
 
-export const Socials = [
-  {
-    name: 'Discord',
-    src: '/instagram.svg',
-    link: '',
-  },
-  {
-    name: 'Facebook',
-    src: '/facebook.svg',
-    link: '',
-  },
-  {
-    name: 'Instagram',
-    src: '/discord.svg',
-    link: '',
-  },
-]
+export const personalInfo = {
+  name: 'Cristian Casis',
+  email: 'crcasis@proton.me',
+  phone: '+34 629 785 212',
+  location: 'Madrid, Spain',
+  githubUrl: 'https://github.com/crcasis',
+  linkedinUrl: 'https://www.linkedin.com/in/cristian-casis-villarreal/',
+  twitterUrl: 'https://x.com/crcasis',
+}
