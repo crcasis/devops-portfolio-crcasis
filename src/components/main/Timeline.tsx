@@ -22,6 +22,29 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
   {
+    id: 0,
+    type: 'work',
+    title: 'Tech Lead & DevOps Manager',
+    company: 'Planimatik',
+    location: 'Remote',
+    date: '2026 - Currently',
+    imageURL: '/suitcase.png',
+    description:
+      'Leading the DevOps team and owning cloud architecture, security and compliance across the platform on AWS.',
+    achievements: [
+      'Lead and manage the DevOps team, defining roadmap, on-call practices and growth plans for engineers.',
+      'Drive AWS Well-Architected Framework reviews across workloads to improve reliability, cost efficiency, security and operational excellence.',
+      'Own EKS platform architecture: cluster upgrades, networking, workload scheduling and multi-environment strategy.',
+      'Design and operate the autoscaling strategy combining Karpenter (node-level), KEDA (event-driven) and HPA (pod-level) to handle variable traffic cost-efficiently.',
+      'Migrated the ingress layer to Envoy Gateway for Kubernetes-native, more flexible traffic routing and management.',
+      'Led SIEM integration across infrastructure and applications to centralize security monitoring and alerting.',
+      'Drive ISO 27001 compliance initiatives, aligning infrastructure controls and operational processes with the standard.',
+      'Oversee IaC (Terraform), CI/CD pipelines and incident response across the organization.',
+    ],
+    icon: <FaBriefcase className="w-6 h-6 text-primary" />,
+    companyIcon: <FaBuilding className="w-8 h-8 text-blue-500" />,
+  },
+  {
     id: 1,
     type: 'work',
     title: 'AWS & Azure Kubernetes Architect',
