@@ -53,22 +53,24 @@ const HeroContent: FC = () => {
       </motion.div>
 
       <motion.div
-        variants={slideInFromLeft(0.5)}
+        variants={slideInFromLeft(0.15)}
         className="flex flex-col items-center justify-between gap-3 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight"
       >
         <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
           Cristian Casis
         </span>
         <PointerHighlight rectangleClassName="rounded-none">
-          <span className="text-primary p-3 text-3xl lg:text-6xl">Senior DevSecOps Engineer</span>
+          <span className="text-primary p-3 text-3xl lg:text-6xl">DevOps Manager | Tech Lead</span>
         </PointerHighlight>
         <span className="text-base text-muted-foreground italic max-w-[500px] mx-auto">
-          I build modern, scalable, and secure cloud architectures on AWS, Azure, and GCP.
+          I lead DevOps teams building secure, well-architected cloud platforms on AWS, Azure &
+          GCP — with a focus on SIEM, ISO 27001 compliance, and AWS Well-Architected design
+          reviews.
         </span>
       </motion.div>
 
       <motion.div
-        variants={slideInFromRight(0.8)}
+        variants={slideInFromRight(0.3)}
         className="mt-4 flex flex-row items-center justify-between gap-2"
       >
         <NavbarButton

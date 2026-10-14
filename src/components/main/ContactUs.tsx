@@ -28,7 +28,7 @@ const ContactUs: FC = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-background text-foreground transition-colors">
+    <section id="contact" className="py-12 bg-background text-foreground transition-colors">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="max-w-4xl mx-auto bg-muted/50 backdrop-blur-lg rounded-none p-8 sm:p-10 shadow-2xl border border-border"

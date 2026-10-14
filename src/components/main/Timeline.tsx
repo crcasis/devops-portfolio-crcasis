@@ -38,6 +38,9 @@ export const timelineData: TimelineItem[] = [
       'Organize and manage resources with terraform and ansible.',
       'Implement security best practices using IAM.',
       'Implement ROSA and ARO clusters in AWS and Azure.',
+      'Implemented cluster autoscaling with Karpenter for cost-efficient, just-in-time node provisioning on EKS.',
+      'Configured workload autoscaling with KEDA (event-driven), HPA and VPA to right-size pod resources for variable traffic.',
+      'Led migration of legacy EC2-based services to EKS with a phased, zero-downtime cutover strategy.',
     ],
     icon: <FaBriefcase className="w-6 h-6 text-primary" />,
     companyIcon: <FaBuilding className="w-8 h-8 text-blue-500" />,
@@ -52,7 +55,7 @@ export const timelineData: TimelineItem[] = [
     imageURL: '/viesure.png',
     description: 'Built infrastructure as code and implemented CI/CD pipelines in AWS provider.',
     achievements: [
-      'Migrate infrastructure to AWS using terraform and cloudformation.',
+      'Led a phased migration from on-premise infrastructure to AWS with minimal downtime, using terraform and cloudformation.',
       'Implement CI/CD pipelines using github actions and gitlab pipelines.',
       'Create from scratch microservices with environments - infrastructure aligned with microservices environments.',
       'Create a deployment plan to release microservices.',
@@ -120,6 +123,7 @@ export const timelineData: TimelineItem[] = [
       'Work with international teams',
       'Travel to USA and central european countries design and implement cloud architecture',
       'Implement kubernetes (EKS, AKS, GKE) using terraform and deploy services using kustomize and helm',
+      'Configured cluster and workload autoscaling (Karpenter, Cluster Autoscaler, KEDA, HPA, VPA) across clusters to optimize cost and handle variable load',
       'Align ops team with security team and create security policies for the companies',
       'Monitoring and logging tools, ELK stack, Prometheus, Grafana, Datadog, New Relic, Zabbix and Nagios',
       'Ticketing and documentation tools, Jira, Confluence, Slack, Teams, Discord',
@@ -183,13 +187,13 @@ const Timeline: FC = () => {
   }))
 
   return (
-    <section id="experience" className="py-20 bg-background text-foreground transition-colors">
+    <section id="experience" className="py-12 bg-background text-foreground transition-colors">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-8"
         >
           <h1 className="text-5xl font-bold tracking-tight text-primary">
             Professional Experience & Projects
